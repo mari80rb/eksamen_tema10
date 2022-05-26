@@ -5,3 +5,7 @@ Version:      1.0.0
 Description:  Astra Child Theme
 Author:      Mariyah, Jasmin, Anders
 */
+
+.site-header header-main-layout-1 ast-primary-menu-enabled ast-logo-title-inline ast-hide-custom-menu-mobile ast-builder-menu-toggle-icon ast-mobile-header-inline{
+	background-color: beige;
+}

@@ -67,8 +67,8 @@ get_header();
 			getJson();
 		}
 
-		const url = "http://mariyahmahmood.dk/kea/10_eksamen/teatime/wp-json/wp/v2/drink?per_page=100"
-		const caturl = "http://mariyahmahmood.dk/kea/10_eksamen/teatime/wp-json/wp/v2/categories?per_page=100"
+		const url = "http://mariyahmahmood.dk/kea/10_eksamen/teatime/wp-json/wp/v2/drink?per_page=100";
+		const caturl = "http://mariyahmahmood.dk/kea/10_eksamen/teatime/wp-json/wp/v2/categories?per_page=100";
 		let kategorier;
 		let filter = "alle";
 

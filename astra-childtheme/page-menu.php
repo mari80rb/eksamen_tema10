@@ -59,7 +59,7 @@ get_header();
 				
 		const liste = document.querySelector("#drink-oversigt");
 		const skabelon = document.querySelector("template");
-		let filterDrink = "alle";
+		/*let filterDrink = "alle";*/
 		document.addEventListener("DOMContentLoaded", start);
 
 		function start() {
@@ -68,7 +68,7 @@ get_header();
 		}
 
 		const url = "http://mariyahmahmood.dk/kea/10_eksamen/teatime/wp-json/wp/v2/drink?per_page=100"
-		const caturl = "http://mariyahmahmood.dk/kea/10_eksamen/teatime/wp-json/wp/v2/categories?per_page=100"
+		const caturl = "http://mariyahmahmood.dk/kea/10_eksamen/teatime/wp-json/wp/v2/ikoner?per_page=100"
 		let kategorier;
 		let filter = "alle";
 
@@ -76,6 +76,7 @@ get_header();
 			console.log("getJson");
 			let response = await fetch(url); 
 			const catdata = await fetch(caturl);
+			
 
 			drink = await response.json();
 			kategorier = await catdata.json();

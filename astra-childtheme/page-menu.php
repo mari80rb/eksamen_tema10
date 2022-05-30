@@ -20,6 +20,8 @@ get_header();
 
 <style>
 
+
+
 </style>
 
 
@@ -55,11 +57,11 @@ get_header();
 
 	<script>
 
-		let drink;
+		let drinks;
 				
 		const liste = document.querySelector("#drink-oversigt");
 		const skabelon = document.querySelector("template");
-		/*let filterDrink = "alle";*/
+		let filterDrink = "alle";
 		document.addEventListener("DOMContentLoaded", start);
 
 		function start() {
@@ -78,7 +80,7 @@ get_header();
 			const catdata = await fetch(caturl);
 			
 
-			drink = await response.json();
+			drinks = await response.json();
 			kategorier = await catdata.json();
 			console.log(kategorier);
 			visDrinks(filter);
@@ -97,7 +99,7 @@ get_header();
 	
 			kategorier.forEach( function (kg){
 				/* Ved ik helt hvad der skal stå i vores ift unesco's, har prøvet at skrive det jeg tror */
-				document.querySelector("#knapper").innerHTML += `<img class="filter" data-drink="${kg.id}" name="${kg.navn}" src="${kg.ikoner}"></img>`; 
+				document.querySelector("#knapper").innerHTML += `<img class="filter" data-drink="${kg.id}" name="${kg.name}" src="${kg.ikon.guid}"></img>`; 
 	
 			})
 
@@ -107,13 +109,13 @@ get_header();
 		function visDrinks(filter) {
 
 			liste.innerHTML = "";
-			projekt.forEach(elm => {
+			kategorier.forEach(elm => {
 	
-				console.log(elm.categories.includes(parseInt(filter)));
-				if (elm.categories.includes(parseInt(filter)) || filter == "alle") {
+				console.log(elm.ikoner.includes(parseInt(filter)));
+				if (elm.ikoner.includes(parseInt(filter)) || filter == "alle") {
 				console.log("foreach kører på drinks");
 				const klon = skabelon.cloneNode(true).content;
-				klon.querySelector("h2").textContent = elm.title.rendered; /*Hvad er title i vores? Det må være i deres WP backend */
+				klon.querySelector("h2").textContent = elm.name.rendered; /*Hvad er title i vores? Det må være i deres WP backend */
 				klon.querySelector("img").src = elm.billede.guid; /*Hvad er billede/guid i vores? Det må være i deres WP backend*/
 
 				klon.querySelector("article").addEventListener("click", () => {location.href = elm.link;
@@ -124,10 +126,10 @@ get_header();
 		}
 		
 		function filtrerDrinks() {
-			filter = this.dataset.projekt;
+			filter = this.dataset.kategorier;
 			document.querySelector(".kategorititel").textContent = this.getAttribute("navn");
-			projekt.forEach(elm => {
-				console.log(elm.categories);
+			kategorier.forEach(elm => {
+				console.log(elm.ikoner);
 			})
 
 			visDrinks(filter);

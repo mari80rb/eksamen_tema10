@@ -20,6 +20,23 @@ get_header();
 
 <style>
 
+	.overskrift, .kategorititel {
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+		text-align: center;
+	}
+
+	
+
+	.overskrift_2{
+		text-align: center;
+	}
+
+
+	.udvalg {
+		text-align: center;
+	}
+
 	#drink-oversigt {
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -30,8 +47,20 @@ get_header();
 	}
 
 	#drink-oversigt img {
-		padding: 10px;
+		
 		object-fit: cover;
+
+
+
+	
+	}
+
+	#drink-oversigt img:hover {
+		
+		object-fit: cover;
+		-moz-box-shadow: 0 0 10px #ccc;
+      -webkit-box-shadow: 0 0 10px #ccc;
+      box-shadow: 0 0 10px #ccc;
 
 
 	
@@ -41,17 +70,36 @@ get_header();
 
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-		grid-gap: 20px;
+		grid-gap: 2.5rem;
 		max-width: 1200px;
-		margin-inline: auto;
+		margin-inline: 16%;
 		padding-bottom: 50px;
 	}
+
+
 
 	#knapper img{
 		object-fit: cover;
 		max-width: 100px;
-		align: center;
+		-moz-box-shadow: 0 0 10px #ccc;
+      -webkit-box-shadow: 0 0 10px #ccc;
+      box-shadow: 0 0 10px #ccc;
+
 	}
+
+	#knapper img {
+		transition: transform .4s;
+	}
+
+	#knapper img:hover {
+		transform: scale(1.2);
+		curser: pointer;
+	}
+
+	.produkt {
+		font-size: 20px; 
+	}
+
 
 </style>
 
@@ -61,9 +109,8 @@ get_header();
 <div id="primary" class="content-area">
 
 	<main id="main" class="site-main">
-		<h1 id="overskrift">Drinks</h1>
-		<p>Her kan du se vores udvalg af forskellige drinks.</p>
-		<h2>Kategorier</h2>
+
+		<h2 class="overskrift">Kategorier</h2>
 
 		<section id="knapper">
 
@@ -76,7 +123,7 @@ get_header();
 		<template>
 			<article class="container_article">
 
-				<h2></h2>
+				<h2 class="produkt"></h2>
 				<img src="" alt="">
 				<p></p>
 
@@ -132,7 +179,7 @@ get_header();
 	
 			kategorier.forEach( function (kg){
 				
-				document.querySelector("#knapper").innerHTML += `<img class="filter" data-drinks="${kg.id}" name="${kg.name}" src="${kg.ikon.guid}"></img>`; 
+				document.querySelector("#knapper").innerHTML += `<img class="filter" data-ikoner="${kg.id}" name="${kg.name}" src="${kg.ikon.guid}"></img>`; 
 	
 			})
 
@@ -148,8 +195,10 @@ get_header();
 				if (elm.ikoner.includes(parseInt(filter)) || filter == "alle") {
 				console.log("foreach kører på drinks");
 				const klon = skabelon.cloneNode(true).content;
-				klon.querySelector("h2").textContent = elm.title.rendered; /*Hvad er title i vores? Det må være i deres WP backend */
+				klon.querySelector("h2").textContent = elm.title.rendered; 
 				klon.querySelector("img").src = elm.billede.guid; 
+				
+
 
 				klon.querySelector("article").addEventListener("click", () => {location.href = elm.link;
 				})
@@ -159,11 +208,15 @@ get_header();
 		}
 		
 		function filtrerDrinks() {
-			filter = this.dataset.kategorier;
-			document.querySelector(".kategorititel").textContent = this.getAttribute("navn");
+			filter = this.dataset.ikoner;
+			document.querySelector(".kategorititel").textContent = this.getAttribute("name");
 			kategorier.forEach(elm => {
 				console.log(elm.ikoner);
 			})
+
+			
+
+			
 
 			visDrinks(filter);
 		}

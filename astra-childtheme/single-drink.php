@@ -22,8 +22,6 @@ get_header(); ?>
   		max-width: 600px;
 		margin-top: 20px;
 		margin-bottom: 20px;
-
-
 	}
 
 	.knap {
@@ -31,12 +29,14 @@ get_header(); ?>
 	}
 
 	section, .emg, .overskrift {
-  		
-  		margin: 2rem;
-  		padding: 1rem;
+  		/* padding: 1rem; */
   		text-align: center;
   		height: 50%;
 	}
+
+    .overskrift {
+        margin-top: 2rem;
+    }
 
 	
 

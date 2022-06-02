@@ -36,8 +36,14 @@ get_header(); ?>
 
     .overskrift {
         margin-top: 2rem;
+		padding-top: 1rem;
     }
 
+	article {
+		background-color: rgba(196, 199, 212, 0.2);
+		border-radius: 10px;
+		margin: 20px;
+	}
 	
 
 
@@ -49,7 +55,7 @@ get_header(); ?>
  <article class="single">
    <h2 class="overskrift"></h2>
         <div class="emg">
-            <img class="image" src="" alt="">
+            <img class="image" src="" alt="bubble tea">
         </div>
 
         <section>
@@ -74,8 +80,6 @@ console.log("scriptStart");
         const dburl = "http://mariyahmahmood.dk/kea/10_eksamen/teatime/wp-json/wp/v2/drink/"+<?php echo get_the_ID() ?>;
         let drinks;
      
-
-        /*let drinks;*/
 
         document.addEventListener("DOMContentLoaded", loadJson);
 

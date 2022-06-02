@@ -59,6 +59,7 @@ get_header();
       box-shadow: 0 0 10px #ccc;
 	}
 
+	
 	#knapper{
 
 		display: grid;
@@ -93,6 +94,7 @@ get_header();
 		font-size: 20px; 
 	}
 
+	
 
 </style>
 
@@ -117,7 +119,7 @@ get_header();
 			<article class="container_article">
 
 				<h2 class="produkt"></h2>
-				<img src="" alt="">
+				<img src="" alt="bubble tea">
 				<p></p>
 
 			</article>

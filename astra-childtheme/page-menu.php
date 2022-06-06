@@ -86,7 +86,7 @@ get_header();
 	}
 
 	#knapper img:hover {
-		transform: scale(1.2);
+		transform: scale(1.7);
 		cursor: pointer;
 	}
 
